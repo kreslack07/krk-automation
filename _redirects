@@ -1,0 +1,16 @@
+# Clean-URL rewrites: strip .html so /about serves about.html
+/index.html  /  301
+/about.html  /about  301
+/contact.html  /contact  301
+/abn-lookup-automation.html  /abn-lookup-automation  301
+/gst-compliance-automation.html  /gst-compliance-automation  301
+/n8n-workflows-for-tradies.html  /n8n-workflows-for-tradies  301
+/ai-email-triage.html  /ai-email-triage  301
+/ai-lead-enrichment.html  /ai-lead-enrichment  301
+/service-m8-calendar-sync.html  /service-m8-calendar-sync  301
+/podcast-transcription-pricing-au.html  /podcast-transcription-pricing-au  301
+/ai-automation-cost-comparison.html  /ai-automation-cost-comparison  301
+/stripe-slack-notifications.html  /stripe-slack-notifications  301
+/free-vs-paid-ai-tools.html  /free-vs-paid-ai-tools  301
+/ai-automation-roi-calculator.html  /ai-automation-roi-calculator  301
+/privacy-act-compliance.html  /privacy-act-compliance  301

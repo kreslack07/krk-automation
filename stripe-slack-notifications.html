@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stripe → Slack: Real-Time Customer Alerts | KRK Automation</title>
+  <meta name="description" content="Get a Slack message within 60 seconds of every new Stripe customer. n8n webhook. 5-min build.">
+  <link rel="canonical" href="https://krk-automation.netlify.app/stripe-slack-notifications.html">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; background: #fafafa; }
+    .container { max-width: 760px; margin: 0 auto; padding: 2rem 1.25rem; }
+    header { background: #1a1a1a; color: #fafafa; padding: 1rem 0; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header .brand { color: #fafafa; text-decoration: none; font-weight: 700; }
+    header nav a { color: #d4d4d4; text-decoration: none; margin-left: 1.25rem; font-size: 0.95rem; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.4rem; margin: 2rem 0 0.75rem; color: #b87333; }
+    p, ul, ol { margin-bottom: 1rem; }
+    a { color: #b87333; }
+    .cta { background: #b87333; color: #fafafa; padding: 0.85rem 1.5rem; border-radius: 4px; display: inline-block; text-decoration: none; margin-top: 1rem; font-weight: 600; }
+    .meta { color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    footer { background: #1a1a1a; color: #888; padding: 2.5rem 0; margin-top: 4rem; text-align: center; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header><div class="container"><a href="/" class="brand">KRK Automation</a><nav><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav></div></header>
+  <main class="container">
+    <p class="meta">Guide · 3 min read</p>
+    <h1>Stripe → Slack: Real-Time Customer Alerts</h1>
+    <p>The single most-requested "I can't believe this is so simple" workflow I build. When a new customer pays you on Stripe, post a message in a Slack channel with their email, plan, and amount. Build time: 5 minutes. Use cases: team awareness, founder dopamine, low-latency support follow-up.</p>
+
+    <h2>The 2-node n8n workflow</h2>
+    <ol>
+      <li><strong>Stripe Webhook</strong> — listen for <code>checkout.session.completed</code></li>
+      <li><strong>Slack message</strong> — post to your <code>#customers</code> channel with the customer email, amount, currency, and product</li>
+    </ol>
+    <p>That's it. No Supabase, no LLM, no transformation. Just event in, message out.</p>
+
+    <h2>The Slack message format</h2>
+    <pre><code>🎉 New customer!
+Name: {{customer_name}}
+Email: {{customer_email}}
+Plan: {{product_name}}
+Amount: {{amount}} {{currency}}
+Payment ID: {{payment_id}}</code></pre>
+
+    <h2>Setup</h2>
+    <ol>
+      <li>Create a Stripe webhook (in Stripe dashboard) pointing to your n8n webhook URL, with the <code>checkout.session.completed</code> event</li>
+      <li>Create a Slack incoming webhook (in Slack API settings) pointing to <code>#customers</code></li>
+      <li>Wire them together in n8n with a 2-node workflow</li>
+    </ol>
+    <p>Time: 5 minutes. Cost: A$0.</p>
+
+    <h2>When this workflow pays for itself</h2>
+    <p>For most founders, the "I have a new customer" notification alone justifies the build. But the real value is downstream: when a customer pays, the workflow can ALSO trigger a personalised welcome email, a Notion CRM row, a fulfilment webhook (for digital products), or a HubSpot deal. The Stripe event becomes the single source of truth for "money came in" across your stack.</p>
+
+    <a href="/contact.html" class="cta">Get this built (5 min) for A$350 →</a>
+  </main>
+  <footer><div class="container"><p>&copy; 2026 KRK Automation · ABN 71 770 320 895</p></div></footer>
+</body>
+</html>

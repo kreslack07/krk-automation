@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation Cost Comparison: AU vs US Vendors | KRK Automation</title>
+  <meta name="description" content="Why AU SMBs pay 1.5-3x more for SaaS than US equivalents, and what to do about it. Real AU pricing for n8n, Supabase, OpenRouter, Make.com, Zapier.">
+  <link rel="canonical" href="https://krk-automation.netlify.app/ai-automation-cost-comparison.html">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; background: #fafafa; }
+    .container { max-width: 760px; margin: 0 auto; padding: 2rem 1.25rem; }
+    header { background: #1a1a1a; color: #fafafa; padding: 1rem 0; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header .brand { color: #fafafa; text-decoration: none; font-weight: 700; }
+    header nav a { color: #d4d4d4; text-decoration: none; margin-left: 1.25rem; font-size: 0.95rem; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.4rem; margin: 2rem 0 0.75rem; color: #b87333; }
+    p, ul, ol { margin-bottom: 1rem; }
+    a { color: #b87333; }
+    .price-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .price-table th, .price-table td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #e0e0e0; }
+    .price-table th { background: #f0f0f0; }
+    .cta { background: #b87333; color: #fafafa; padding: 0.85rem 1.5rem; border-radius: 4px; display: inline-block; text-decoration: none; margin-top: 1rem; font-weight: 600; }
+    .meta { color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    footer { background: #1a1a1a; color: #888; padding: 2.5rem 0; margin-top: 4rem; text-align: center; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header><div class="container"><a href="/" class="brand">KRK Automation</a><nav><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav></div></header>
+  <main class="container">
+    <p class="meta">Guide · 7 min read</p>
+    <h1>AI Automation Cost Comparison: AU vs US Vendors</h1>
+    <p>Why do AU SMBs pay 1.5-3x more for the same SaaS as US counterparts? FX, GST on imports, and the "Australia tax" of US vendors pricing in USD. Here's what to use instead, with real AU pricing as of October 2026.</p>
+
+    <h2>The painful reality</h2>
+    <p>Most US SaaS tools price in USD. AU businesses pay the spot rate + the bank's 2-3% FX fee + GST (10% on digital imports over A$1,000). For a US$99/mo SaaS, that's actually A$163-170/mo on your credit card. Over a year, that's A$768-$852 extra vs. the listed US price.</p>
+    <p>For multi-tool stacks (5-10 SaaS subscriptions per modern SMB), this adds up to A$3,000-A$8,000/year in "Australia tax."</p>
+
+    <h2>The workaround: open-source + pay-per-token</h2>
+    <table class="price-table">
+      <thead>
+        <tr><th>Tool</th><th>US SaaS equivalent</th><th>Open-source alt (AU cost)</th><th>Annual savings (typical SMB)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Workflow automation</td><td>Zapier US$19-599/mo</td><td>n8n free or US$20/mo Pro</td><td>A$1,200-A$4,000/yr</td></tr>
+        <tr><td>Database / state</td><td>Airtable US$20-45/mo</td><td>Supabase free or US$25/mo Pro</td><td>A$200-A$400/yr</td></tr>
+        <tr><td>LLM API</td><td>OpenAI US$20+/mo</td><td>OpenRouter pay-per-token (~$A$10/mo typical)</td><td>A$120/yr</td></tr>
+        <tr><td>Email/CRM</td><td>HubSpot US$50-800/mo</td><td>Composio + Gmail + Sheets (free)</td><td>A$600-A$9,600/yr</td></tr>
+        <tr><td>Forms / landing</td><td>Typeform US$25-83/mo</td><td>Netlify static forms (free)</td><td>A$300-A$1,000/yr</td></tr>
+        <tr><td>Scheduling</td><td>Calendly US$8-16/mo</td><td>Cal.com (free / US$12/mo)</td><td>A$96-A$192/yr</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The catch with "free" open-source</h2>
+    <p>Free tiers cover 80% of AU SMB use cases. The 20% gap is usually:
+<ul>
+  <li>Higher learning curve (2-5 days to set up vs. 1 hour for a SaaS signup)</li>
+  <li>Self-hosted components need monitoring (n8n Pro is the right balance for most)</li>
+  <li>No support team to call (you trade that for the cost savings)</li>
+</ul>
+For AU SMBs doing 5+ workflows with non-trivial business logic, the right balance is usually n8n Pro (US$20/mo, ~A$31/mo) + Supabase Pro (US$25/mo) + OpenRouter (~$A$10-30/mo) = ~A$70-100/mo total. Vs the equivalent SaaS stack at A$300-800/mo. Savings: A$2,500-8,500/yr.</p>
+
+    <h2>When NOT to switch</h2>
+    <p>Don't switch if:</p>
+    <ul>
+      <li>You don't have someone in the team (even part-time) who can debug n8n workflows</li>
+      <li>Your workflows are critical to revenue and downtime costs &gt; the SaaS savings</li>
+      <li>Compliance requires SOC2 / ISO 27001 (most open-source alternatives don't have these by default)</li>
+    </ul>
+    <p>For most AU SMBs in the "5-50 workflows, 1-2 hours/week of debugging" range, the open-source stack pays for itself within 6 months even accounting for the learning curve.</p>
+
+    <a href="/contact.html" class="cta">Get an AU cost-comparison audit for A$350 →</a>
+  </main>
+  <footer><div class="container"><p>&copy; 2026 KRK Automation · ABN 71 770 320 895</p></div></footer>
+</body>
+</html>

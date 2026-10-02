@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Act 1988 + Spam Act 2003 Compliance for AI Workflows | KRK Automation</title>
+  <meta name="description" content="The minimum compliance cues every AU SMB AI workflow needs. Privacy Act 1988, Spam Act 2003, Notifiable Data Breaches scheme.">
+  <link rel="canonical" href="https://krk-automation.netlify.app/privacy-act-compliance.html">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; background: #fafafa; }
+    .container { max-width: 760px; margin: 0 auto; padding: 2rem 1.25rem; }
+    header { background: #1a1a1a; color: #fafafa; padding: 1rem 0; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header .brand { color: #fafafa; text-decoration: none; font-weight: 700; }
+    header nav a { color: #d4d4d4; text-decoration: none; margin-left: 1.25rem; font-size: 0.95rem; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.4rem; margin: 2rem 0 0.75rem; color: #b87333; }
+    p, ul, ol { margin-bottom: 1rem; }
+    a { color: #b87333; }
+    .cta { background: #b87333; color: #fafafa; padding: 0.85rem 1.5rem; border-radius: 4px; display: inline-block; text-decoration: none; margin-top: 1rem; font-weight: 600; }
+    .meta { color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .warn { background: #fff3cd; border-left: 4px solid #b87333; padding: 1rem; margin: 1rem 0; }
+    footer { background: #1a1a1a; color: #888; padding: 2.5rem 0; margin-top: 4rem; text-align: center; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header><div class="container"><a href="/" class="brand">KRK Automation</a><nav><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav></div></header>
+  <main class="container">
+    <p class="meta">Guide · 8 min read</p>
+    <h1>Privacy Act 1988 + Spam Act 2003 Compliance for AI Workflows</h1>
+    <p>If you're an AU SMB building AI workflows that touch personal data, you operate under three pieces of legislation: Privacy Act 1988 + the Australian Privacy Principles (APPs), the Spam Act 2003, and the Notifiable Data Breaches (NDB) scheme. Here's the minimum you need to do to stay on the right side of each.</p>
+
+    <div class="warn">
+      <strong>This is not legal advice.</strong> If you're processing personal data at scale (&gt; 10,000 records/year) or in a regulated sector (health, finance, education), get a real privacy lawyer. This page is for AU sole traders and small businesses doing light-touch AI work.
+    </div>
+
+    <h2>Privacy Act 1988 + APPs (the basics)</h2>
+    <p>If you collect, store, or use any personal information (name, email, phone, address, IP, etc.) about an individual, the Privacy Act applies. The 13 APPs govern what you can and can't do. The minimum compliance bar:</p>
+    <ol>
+      <li><strong>Have a privacy policy.</strong> A 1-page plain-English doc on your website. Cover: what you collect, why, how long you keep it, who you share it with, how someone can ask to be removed.</li>
+      <li><strong>Only collect what you need.</strong> Don't harvest emails you won't use. Don't enrich leads with data you won't act on. The "collect now, decide later" approach is a Privacy Act violation.</li>
+      <li><strong>Document the source.</strong> Every record in your CRM/Sheet should have a "LeadSource" column. If you can't tell someone "this is where we got your details," you have a problem.</li>
+      <li><strong>Honour opt-outs within 30 days.</strong> If someone asks to be removed, remove them. AU APP 12 requires this. Most AU businesses get caught here because they "almost got to it."</li>
+      <li><strong>Secure the data.</strong> Don't store customer data in a public Google Sheet. Use Supabase, a CRM, or at minimum a Sheet with restricted sharing.</li>
+    </ol>
+
+    <h2>Spam Act 2003 (the email/anti-spam law)</h2>
+    <p>The Spam Act applies to commercial electronic messages (CEMs) — email, SMS, instant message. The key rule: <strong>you need consent OR a pre-existing business relationship before sending commercial messages</strong>. Penalties: up to A$1.1M/day for corporations, A$220k/day for individuals.</p>
+    <p>What this means for AI workflows:</p>
+    <ul>
+      <li><strong>Cold email automation = spam</strong> unless you have consent or a clear "soft opt-in" basis (existing customer, recent inquiry, etc.)</li>
+      <li><strong>Every CEM must identify the sender</strong> — your name, your contact details, and an unsubscribe mechanism. Your AI workflow should add these to every outbound message automatically.</li>
+      <li><strong>Opt-out must be honoured within 5 business days</strong>. AI workflows that send follow-ups should check an opt-out flag before each send.</li>
+    </ul>
+
+    <h2>Notifiable Data Breaches (NDB) scheme</h2>
+    <p>If you have a data breach that's likely to cause serious harm, you must notify the OAIC and affected individuals. The threshold is A$3M+ turnover OR the data is health/credit-related. Most AU SMBs are below the threshold, but the principle still applies: if you leak 1,000 customer emails, you should tell them.</p>
+    <p>For AI workflows: log every external API call that touches personal data. If something goes wrong, the audit log is your first line of defense.</p>
+
+    <h2>The 5 cues every AI workflow should include</h2>
+    <ol>
+      <li><strong>LeadSource column</strong> in every CRM/Sheet</li>
+      <li><strong>Opt-out column + check</strong> before any outbound send</li>
+      <li><strong>Sender identification</strong> in every message (name, ABN, contact)</li>
+      <li><strong>Audit log</strong> of every API call that touches personal data</li>
+      <li><strong>Privacy policy URL</strong> in every form, every email footer, every LinkedIn message</li>
+    </ol>
+
+    <h2>What I do in every AI workflow I build</h2>
+    <p>As a default, every n8n workflow I deliver includes:</p>
+    <ul>
+      <li>LeadSource capture (added to every record)</li>
+      <li>Opt-out check before any send</li>
+      <li>Standard sender signature with ABN 71 770 320 895</li>
+      <li>n8n execution log enabled (1 year retention)</li>
+      <li>Privacy policy link in any outbound template</li>
+    </ul>
+    <p>These 5 cues take 10 min to add. They take the AU compliance conversation off your desk for 95% of use cases.</p>
+
+    <a href="/contact.html" class="cta">Get a compliance review of your existing AI workflows →</a>
+  </main>
+  <footer><div class="container"><p>&copy; 2026 KRK Automation · ABN 71 770 320 895</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation for Australian Small Business | KRK Automation</title>
+  <meta name="description" content="The complete guide to AI automation for AU small business in 2026. n8n + Supabase + OpenRouter stack. No vendor lock-in. AU sole-trader tested.">
+  <meta name="keywords" content="AI automation Australia, n8n AU, AU small business AI, AU tradie automation, AU sole trader AI, GST automation AU, ABN automation, KRK">
+  <meta property="og:title" content="AI Automation for Australian Small Business">
+  <meta property="og:description" content="The complete guide to AI automation for AU small business in 2026. n8n + Supabase + OpenRouter stack. No vendor lock-in.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://krk-automation.netlify.app/">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; background: #fafafa; }
+    .container { max-width: 760px; margin: 0 auto; padding: 2rem 1.25rem; }
+    header { background: #1a1a1a; color: #fafafa; padding: 1rem 0; position: sticky; top: 0; z-index: 10; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header .brand { color: #fafafa; text-decoration: none; font-weight: 700; font-size: 1.1rem; }
+    header nav a { color: #d4d4d4; text-decoration: none; margin-left: 1.25rem; font-size: 0.95rem; }
+    header nav a:hover { color: #b87333; }
+    h1 { font-size: 2.1rem; margin-bottom: 0.5rem; line-height: 1.2; }
+    .subtitle { color: #666; font-size: 1.1rem; margin-bottom: 2rem; }
+    h2 { font-size: 1.5rem; margin: 2.5rem 0 0.75rem; color: #b87333; border-bottom: 2px solid #b87333; padding-bottom: 0.25rem; }
+    h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; }
+    p, ul, ol { margin-bottom: 1rem; }
+    ul, ol { padding-left: 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    a { color: #b87333; }
+    a:hover { color: #8a5a26; }
+    code { background: #e8e8e8; padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.9em; font-family: "SF Mono", Consolas, monospace; }
+    .cta { background: #b87333; color: #fafafa; padding: 0.85rem 1.5rem; border-radius: 4px; display: inline-block; text-decoration: none; margin-top: 1rem; font-weight: 600; }
+    .cta:hover { background: #8a5a26; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 6px; padding: 1rem; }
+    .card h3 { margin-top: 0; color: #1a1a1a; }
+    .card p { color: #555; font-size: 0.95rem; margin-bottom: 0; }
+    footer { background: #1a1a1a; color: #888; padding: 2.5rem 0; margin-top: 4rem; text-align: center; font-size: 0.9rem; }
+    footer a { color: #b87333; text-decoration: none; }
+    .meta { color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="brand">KRK Automation</a>
+      <nav>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <p class="meta">Last updated: 2 October 2026 · AU sole-trader tested</p>
+    <h1>AI Automation for Australian Small Business</h1>
+    <p class="subtitle">The complete guide to building AI agents that pay for themselves in 30 days — using open-source n8n, free Supabase, and pay-per-token LLMs.</p>
+
+    <h2>Why this guide</h2>
+    <p>Most AU SMBs are paying for SaaS tools that don't talk to each other. The result: a finance team copy-pasting between Xero, HubSpot, and Gmail. A sales team that follows up manually. A marketing team that can't get attribution from Stripe to Meta.</p>
+    <p>The fix isn't another SaaS subscription. It's a small AI agent — usually 5-7 nodes in n8n, with Supabase for state and OpenRouter for LLM calls — that does the boring part for you. You own the workflow forever. No vendor lock-in. No monthly fee beyond LLM tokens.</p>
+    <p>This guide walks through 12 automations that have actually paid for themselves in AU small businesses — tradies, e-com shops, consultants, podcasters, real-estate agents. Each one is a 5-14 day build, A$500-A$2,000 fixed-price, or a few hours of your own time if you follow the walkthrough.</p>
+
+    <h2>The stack (free-tier friendly, no vendor lock-in)</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>n8n</h3>
+        <p>Workflow engine. Free Cloud tier or self-hosted. 200+ integrations. We use this for everything.</p>
+      </div>
+      <div class="card">
+        <h3>Supabase</h3>
+        <p>Postgres + auth + edge functions. 500K free invocations/mo. We use this for state.</p>
+      </div>
+      <div class="card">
+        <h3>OpenRouter</h3>
+        <p>Pay-per-token LLM access. Free credits to start. One API, every model.</p>
+      </div>
+      <div class="card">
+        <h3>Composio</h3>
+        <p>OAuth + native API wrappers for Gmail, Slack, HubSpot, Pipedrive, Attio. Free tier covers 90% of use cases.</p>
+      </div>
+    </div>
+    <p>All four are open-source, all have free tiers that cover most AU SMB use cases, and none will disappear when a VC-funded competitor pivots.</p>
+
+    <h2>The 12 automations that pay for themselves</h2>
+    <p>Each link below is a full guide — what it does, how long it takes, what it costs, and a copy-pasteable n8n workflow JSON.</p>
+    <ul>
+      <li><a href="/abn-lookup-automation.html">ABN lookup automation for AU leads</a></li>
+      <li><a href="/gst-compliance-automation.html">GST compliance automation for sole traders</a></li>
+      <li><a href="/n8n-workflows-for-tradies.html">n8n workflows for tradies (electricians, plumbers, builders)</a></li>
+      <li><a href="/ai-email-triage.html">AI email triage in Gmail</a></li>
+      <li><a href="/ai-lead-enrichment.html">AI lead enrichment from a Google Sheet</a></li>
+      <li><a href="/service-m8-calendar-sync.html">ServiceM8 ↔ Google Calendar two-way sync</a></li>
+      <li><a href="/podcast-transcription-pricing-au.html">Podcasting: AI transcription + show notes</a></li>
+      <li><a href="/ai-automation-cost-comparison.html">AI automation cost comparison: AU vs US vendors</a></li>
+      <li><a href="/stripe-slack-notifications.html">Stripe → Slack: real-time customer alerts</a></li>
+      <li><a href="/free-vs-paid-ai-tools.html">Free vs paid AI tools for AU sole traders</a></li>
+      <li><a href="/ai-automation-roi-calculator.html">AI automation ROI calculator (5-min worksheet)</a></li>
+      <li><a href="/privacy-act-compliance.html">Privacy Act 1988 + Spam Act 2003 compliance cues for AI workflows</a></li>
+    </ul>
+
+    <h2>What this guide is NOT</h2>
+    <p>This is not a "AI transformation" pitch. There's no 6-figure engagement here. No upsell to a managed service. No SaaS product to subscribe to.</p>
+    <p>The 12 automations above are specific, small, and self-contained. Each one will save you 1-5 hours/week. Each one pays for itself in 30 days, or you don't keep it.</p>
+    <p>If you want help building one, KRK Automation (AU sole trader, ABN 71 770 320 895) does fixed-price AI automation plans from A$500 (48-hour turnaround, 1-page written plan) and per-workflow builds from A$500-$2,000 (5-14 day delivery). <a href="/contact.html">Get in touch</a>.</p>
+
+    <h2>How to use this guide</h2>
+    <ol>
+      <li>Pick the one automation that would save you the most time this week.</li>
+      <li>Read its guide page (5-10 min read).</li>
+      <li>Try the 1-page AI automation plan (A$500) if you want a second opinion before you build.</li>
+      <li>Build it yourself with the walkthrough, or hire it out.</li>
+      <li>Move to the next one. Repeat.</li>
+    </ol>
+    <p>Most AU SMBs have 3-5 of these in their current stack. The rest is noise.</p>
+
+    <a href="/contact.html" class="cta">Get the A$500 AI automation plan →</a>
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 KRK Automation · ABN 71 770 320 895 · Caringbah NSW 2229 · <a href="/contact.html">Contact</a> · <a href="/about.html">About</a></p>
+    </div>
+  </footer>
+</body>
+</html>

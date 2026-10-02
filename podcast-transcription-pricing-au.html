@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podcasting: AI Transcription + Show Notes Pricing AU | KRK Automation</title>
+  <meta name="description" content="What does podcast transcription cost in Australia in 2026? A practical comparison of AI vs human, with the n8n workflow that does it for A$0.30/episode.">
+  <link rel="canonical" href="https://krk-automation.netlify.app/podcast-transcription-pricing-au.html">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; background: #fafafa; }
+    .container { max-width: 760px; margin: 0 auto; padding: 2rem 1.25rem; }
+    header { background: #1a1a1a; color: #fafafa; padding: 1rem 0; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header .brand { color: #fafafa; text-decoration: none; font-weight: 700; }
+    header nav a { color: #d4d4d4; text-decoration: none; margin-left: 1.25rem; font-size: 0.95rem; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.4rem; margin: 2rem 0 0.75rem; color: #b87333; }
+    p, ul, ol { margin-bottom: 1rem; }
+    a { color: #b87333; }
+    .price-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .price-table th, .price-table td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #e0e0e0; }
+    .price-table th { background: #f0f0f0; }
+    .cta { background: #b87333; color: #fafafa; padding: 0.85rem 1.5rem; border-radius: 4px; display: inline-block; text-decoration: none; margin-top: 1rem; font-weight: 600; }
+    .meta { color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    footer { background: #1a1a1a; color: #888; padding: 2.5rem 0; margin-top: 4rem; text-align: center; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header><div class="container"><a href="/" class="brand">KRK Automation</a><nav><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav></div></header>
+  <main class="container">
+    <p class="meta">Guide · 6 min read</p>
+    <h1>Podcasting: AI Transcription + Show Notes Pricing AU</h1>
+    <p>What does it actually cost to transcribe a 45-minute podcast episode in Australia in 2026? Here's a real comparison, and the n8n workflow that does the AI version for A$0.30 in compute.</p>
+
+    <h2>The four options AU podcasters use</h2>
+    <table class="price-table">
+      <thead>
+        <tr><th>Service</th><th>Cost/episode</th><th>Turnaround</th><th>Quality (1-5)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Rev.com (human)</td><td>A$2-4/min → A$90-180/45min</td><td>12-24h</td><td>5</td></tr>
+        <tr><td>Otter.ai Pro (AI)</td><td>US$16.99/mo for 6h → A$1.50/episode amortised</td><td>5-10 min</td><td>4</td></tr>
+        <tr><td>Descript (AI + editing)</td><td>US$24/mo for 10h → A$1.80/episode</td><td>5-10 min</td><td>4.5</td></tr>
+        <tr><td>n8n + OpenAI Whisper (self-built)</td><td>A$0.30/episode in OpenRouter tokens</td><td>3-5 min</td><td>4</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The n8n + Whisper workflow</h2>
+    <ol>
+      <li><strong>Trigger:</strong> New MP3 uploaded to a specific Google Drive folder (or a Zapier-style "send to webhook" link)</li>
+      <li><strong>Whisper:</strong> POST the audio to OpenRouter's <code>whisper-1</code> endpoint, get back the transcript with timestamps</li>
+      <li><strong>OpenRouter (LLM):</strong> Generate show notes (200-300 words) + chapter markers (3-5) + 3 tweet-length pull-quotes</li>
+      <li><strong>Write back:</strong> Create a Google Doc with the transcript + show notes, return the URL via email</li>
+    </ol>
+    <p>Total time: 3-5 min for a 45-min episode. Total cost: ~A$0.30 in OpenRouter tokens.</p>
+
+    <h2>When to use which</h2>
+    <ul>
+      <li><strong>Human (Rev):</strong> when the episode has heavy accents, multiple languages, or technical jargon that AI mangles</li>
+      <li><strong>AI (self-built):</strong> for the 90% case — clean audio, English-only, single or dual speakers</li>
+      <li><strong>AI + light human review:</strong> the sweet spot. AI does the heavy lift, you spend 10 min cleaning up names and any terms the AI hallucinated</li>
+    </ul>
+
+    <h2>The show notes multiplier</h2>
+    <p>The real value of transcription isn't the text — it's the SEO. A 45-min episode becomes:</p>
+    <ul>
+      <li>3,000-5,000 words of transcript (Google ranks transcript text)</li>
+      <li>A 300-word blog post (the show notes)</li>
+      <li>3-5 tweet-length pull-quotes (social media)</li>
+      <li>5-7 LinkedIn posts (one per key insight)</li>
+      <li>A YouTube description (ranked by YouTube search)</li>
+    </ul>
+    <p>That's 10-15 derivative content pieces from one episode. The AI workflow does this for A$0.30. The human workflow does it for A$90-$180 — and the marginal quality difference doesn't justify 300-600x the cost for most podcasts.</p>
+
+    <h2>The catch</h2>
+    <p>AI transcription has a 3-5% word error rate on clean audio, 8-12% on noisy audio. For a podcast you're publishing as-is, that's acceptable. For a legal deposition, it isn't. Know your use case.</p>
+
+    <a href="/contact.html" class="cta">Get this built for A$500 →</a>
+  </main>
+  <footer><div class="container"><p>&copy; 2026 KRK Automation · ABN 71 770 320 895</p></div></footer>
+</body>
+</html>

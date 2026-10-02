@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABN Lookup Automation for AU Leads | KRK Automation</title>
+  <meta name="description" content="How to automate ABN lookup + verification in your lead-enrichment pipeline. n8n + ABR API. AU Privacy Act 1988 compliant.">
+  <meta property="og:title" content="ABN Lookup Automation for AU Leads">
+  <link rel="canonical" href="https://krk-automation.netlify.app/abn-lookup-automation.html">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; background: #fafafa; }
+    .container { max-width: 760px; margin: 0 auto; padding: 2rem 1.25rem; }
+    header { background: #1a1a1a; color: #fafafa; padding: 1rem 0; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header .brand { color: #fafafa; text-decoration: none; font-weight: 700; }
+    header nav a { color: #d4d4d4; text-decoration: none; margin-left: 1.25rem; font-size: 0.95rem; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.4rem; margin: 2rem 0 0.75rem; color: #b87333; }
+    h3 { font-size: 1.15rem; margin: 1.5rem 0 0.5rem; }
+    p, ul, ol { margin-bottom: 1rem; }
+    code { background: #e8e8e8; padding: 0.15rem 0.4rem; border-radius: 3px; font-family: "SF Mono", Consolas, monospace; font-size: 0.9em; }
+    pre { background: #1a1a1a; color: #fafafa; padding: 1rem; border-radius: 4px; overflow-x: auto; margin: 1rem 0; font-size: 0.85rem; }
+    a { color: #b87333; }
+    .cta { background: #b87333; color: #fafafa; padding: 0.85rem 1.5rem; border-radius: 4px; display: inline-block; text-decoration: none; margin-top: 1rem; font-weight: 600; }
+    .meta { color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    footer { background: #1a1a1a; color: #888; padding: 2.5rem 0; margin-top: 4rem; text-align: center; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header><div class="container"><a href="/" class="brand">KRK Automation</a><nav><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav></div></header>
+  <main class="container">
+    <p class="meta">Guide · 8 min read</p>
+    <h1>ABN Lookup Automation for AU Leads</h1>
+    <p>Verifying an ABN takes 30 seconds. Doing it for 500 leads takes 4 hours. Here's how to automate it.</p>
+
+    <h2>The problem</h2>
+    <p>If your sales pipeline is AU-focused, every lead needs an ABN lookup — to confirm the business is real, registered, and GST-active. The Australian Business Register (ABR) provides a free public API, but most sales teams do it manually, copy-pasting each company name into <code>abr.business.gov.au</code> and typing the result into a CRM.</p>
+    <p>For 50 leads/week, that's 25 minutes/week of soul-crushing data entry. For 500 leads/week, it's a part-time job.</p>
+
+    <h2>The solution</h2>
+    <p>An n8n workflow that takes a Google Sheet of company names, calls the ABR API for each, and writes back the ABN, entity type, GST status, and registration date.</p>
+    <p>Build time: 3-4 hours. Cost to run: A$0 (ABR API is free, n8n Cloud free tier covers 200 executions/mo). Or hire it built: A$500 fixed-price.</p>
+
+    <h2>The walkthrough</h2>
+    <ol>
+      <li><strong>Trigger:</strong> Google Sheets — new row added to "Leads" tab</li>
+      <li><strong>ABR lookup:</strong> HTTP Request to <code>https://abr.business.gov.au/json/AbnSearch.aspx</code> with the company name as a search query</li>
+      <li><strong>Parse:</strong> Function node to extract ABN, entity type, GST status, registration date from the JSON</li>
+      <li><strong>Write back:</strong> Google Sheets — update the same row with the verified fields</li>
+    </ol>
+
+    <h2>Compliance (Privacy Act 1988)</h2>
+    <p>The ABR data is public, but you're still collecting it. AU Privacy Act 1988 + APPs apply. Minimum to do this right:</p>
+    <ul>
+      <li>Document the collection purpose in your privacy policy</li>
+      <li>Don't share the enriched data with third parties without consent</li>
+      <li>Keep an audit trail of when each lookup was run (the workflow already does this in n8n's execution log)</li>
+    </ul>
+
+    <h2>The catch</h2>
+    <p>The ABR API is rate-limited. Free tier is 20 requests/minute, 1000/day. If you need more, you'll need a paid tier or to throttle the workflow. The 3-4 hour build includes a 1-second delay between requests — small enough to not trip the rate limit, large enough to not look like scraping.</p>
+
+    <a href="/contact.html" class="cta">Get this built for A$500 →</a>
+  </main>
+  <footer><div class="container"><p>&copy; 2026 KRK Automation · ABN 71 770 320 895</p></div></footer>
+</body>
+</html>

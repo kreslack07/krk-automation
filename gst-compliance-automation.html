@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GST Compliance Automation for Sole Traders | KRK Automation</title>
+  <meta name="description" content="How to automate GST handling, BAS-ready reports, and tax-time workflows for AU sole traders. n8n + Xero + Stripe.">
+  <link rel="canonical" href="https://krk-automation.netlify.app/gst-compliance-automation.html">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; background: #fafafa; }
+    .container { max-width: 760px; margin: 0 auto; padding: 2rem 1.25rem; }
+    header { background: #1a1a1a; color: #fafafa; padding: 1rem 0; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    header .brand { color: #fafafa; text-decoration: none; font-weight: 700; }
+    header nav a { color: #d4d4d4; text-decoration: none; margin-left: 1.25rem; font-size: 0.95rem; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.4rem; margin: 2rem 0 0.75rem; color: #b87333; }
+    p, ul, ol { margin-bottom: 1rem; }
+    code { background: #e8e8e8; padding: 0.15rem 0.4rem; border-radius: 3px; font-family: "SF Mono", Consolas, monospace; font-size: 0.9em; }
+    a { color: #b87333; }
+    .cta { background: #b87333; color: #fafafa; padding: 0.85rem 1.5rem; border-radius: 4px; display: inline-block; text-decoration: none; margin-top: 1rem; font-weight: 600; }
+    .meta { color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    footer { background: #1a1a1a; color: #888; padding: 2.5rem 0; margin-top: 4rem; text-align: center; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header><div class="container"><a href="/" class="brand">KRK Automation</a><nav><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav></div></header>
+  <main class="container">
+    <p class="meta">Guide · 6 min read</p>
+    <h1>GST Compliance Automation for Sole Traders</h1>
+    <p>If you cross A$75,000 turnover, you register for GST. Most AU sole traders hit that faster than they expect — and the BAS becomes a quarterly panic. Here's the 5-node workflow that fixes it.</p>
+
+    <h2>The trigger for GST registration</h2>
+    <p>ATO rule: register within <strong>21 days</strong> of crossing A$75k turnover (excluding GST). Most sole traders don't track this in real time. The workflow below does.</p>
+
+    <h2>The 5-node n8n workflow</h2>
+    <ol>
+      <li><strong>Trigger:</strong> Schedule (every Monday 9am AEDT)</li>
+      <li><strong>Aggregate:</strong> HTTP Request to Stripe — get all charges from the last 7 days, sum by currency, convert to AUD</li>
+      <li><strong>Compare:</strong> Function node — add to running YTD total (stored in Supabase), check if &gt; A$75k</li>
+      <li><strong>Alert:</strong> If over threshold → send email to operator: "GST registration required. You crossed A$75k on [date]"</li>
+      <li><strong>Log:</strong> Write the weekly total to Supabase for the audit trail</li>
+    </ol>
+
+    <h2>Why this matters</h2>
+    <p>Failure to register on time = ATO penalties + interest on unpaid GST. The penalty starts at 1 penalty unit per week (currently A$330) and compounds. The workflow pays for itself the first time it catches you approaching the threshold.</p>
+
+    <h2>BAS-ready monthly report (bonus workflow)</h2>
+    <p>Once registered, the same Stripe + Supabase pattern generates a monthly BAS draft:</p>
+    <ul>
+      <li>Total sales (1A): from Stripe charges</li>
+      <li>GST collected (1B): total sales / 11</li>
+      <li>Total purchases (1C): from a parallel "Receipts" Sheet where you log expenses</li>
+      <li>GST paid (1D): purchases / 11</li>
+      <li>Net GST (1A - 1D): calculated</li>
+    </ul>
+    <p>Manual input needed: log receipts in a Google Sheet as you incur them. The workflow does the rest. Estimated 4 hours/month saved vs. doing BAS by hand.</p>
+
+    <h2>The catch</h2>
+    <p>This isn't a substitute for an accountant. AU sole-trader tax is more than GST. But it removes 80% of the data-entry pain so the accountant gets clean numbers to work with.</p>
+
+    <a href="/contact.html" class="cta">Get this built for A$500 →</a>
+  </main>
+  <footer><div class="container"><p>&copy; 2026 KRK Automation · ABN 71 770 320 895</p></div></footer>
+</body>
+</html>
